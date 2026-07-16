@@ -849,11 +849,55 @@ best placed at the very top of the homepage )
   - Caput Draconis: High-ticket positioning charm to establish the clinic as an elite, premium destination for complex dental work.
 -->
     
-<!-- Elfsight Appointment Booking | Untitled Appointment Booking -->
+<!-- Google Ads Conversion -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18293874636/9hUvCK6rpdEcEMy_mZNE',
+    'event_callback': callback
+  });
+
+  return false;
+}
+</script>
+
+<!-- Elfsight Appointment Booking -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-55123245-8c3e-465f-b52d-fc63cda0c3f0" data-elfsight-app-lazy></div>
 
+<script>
+window.addEventListener("load", function () {
 
+    const attachListener = () => {
+
+        // Find the floating Elfsight launcher
+        const launcher = document.querySelector(".eapps-widget-toolbar, .elfsight-app, [class*='FloatingButton'], [class*='eapps']");
+
+        if (launcher && !launcher.dataset.trackingAttached) {
+
+            launcher.dataset.trackingAttached = "true";
+
+            launcher.addEventListener("click", function () {
+                gtag_report_conversion();
+            });
+
+            console.log("Google Ads conversion tracking attached.");
+        }
+    };
+
+    attachListener();
+
+    // Keep checking because Elfsight loads asynchronously
+    setInterval(attachListener, 1000);
+
+});
+</script>
 </body>
 
 
